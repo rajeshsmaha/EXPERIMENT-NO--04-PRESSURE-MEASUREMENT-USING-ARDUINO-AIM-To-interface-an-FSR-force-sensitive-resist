@@ -1,11 +1,11 @@
 # EXPERIMENT-NO--03-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resistor
 
 # DATE :
-# NAME :
-# ROLLNUMBER :
-# DEPARTMENT
-## AIM: 
-To interface an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied 
+# NAME :RAJESWARAN D
+# ROLLNUMBER :212223040165
+# DEPARTMENT:CSE
+## AIM: To interface an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied 
+
  
 ### COMPONENTS REQUIRED:
 1.	FSR  (force sensitive resistor)
@@ -79,13 +79,45 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 
 ### PROGRAM 
- *your roll no 
- * your name 
- * department and year 
- 
- 
- 
- 
+ *your roll no :212223040165
+ * your name :RAJESWARAN D
+ * department and year:CSE 1T YEAR
+```
+ int fsr;
+int LED=7;
+void setup()
+{
+pinMode(LED, OUTPUT);
+Serial.begin(9600);
+}
+void loop()
+{
+fsr=analogRead(A0);
+Serial.print("raw value=");
+Serial.println(fsr);
+delay(1000);
+float m;
+m=map(fsr,0,159,0,10);
+Serial.print("MAPPED value=");
+Serial.println(m);
+delay(1000);
+if(m>5)
+{
+digitalWrite(LED,HIGH);
+delay(500);
+digitalWrite(LED,LOW);
+delay(500);
+}
+}
+```
+ ### CIRCUIT DIAGRAM
+![dai](https://github.com/rajeshsmaha/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/147608800/4cc85d0e-a84c-4994-9b1f-8332a37556e2)
+
+
+### SCHEMATIC VIEW:
+
+ ![Picsart_24-03-05_20-12-39-112](https://github.com/rajeshsmaha/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/147608800/bfeee313-dc2b-4e3b-b6b2-24a37013bef1)
+
  
  
  
@@ -102,6 +134,8 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 
 ### TABLE -02 standard deviation table 
+![sree](https://github.com/rajeshsmaha/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/147608800/5ec014d2-80d6-468b-a124-c2327474ebb9)
+
 ### Population Standard Deviation
 The population standard deviation, the standard definition of σ, is used when an entire population can be measured, and is the square root of the variance of a given data set. In cases where every member of a population can be sampled, the following equation can be used to find the standard deviation of the entire population:
 
